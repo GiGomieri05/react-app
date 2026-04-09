@@ -54,20 +54,24 @@ function Calculator() {
     clickNumber(btn);
   }
 
-  return (
-    <div style={{ display: 'inline-grid', gap: '6px' }}>
-      <div style={{
-        gridColumn: 'span 4', textAlign: 'right',
-        fontSize: '28px', padding: '8px 12px',
-        background: 'rgba(0,0,0,0.06)', borderRadius: '8px'
-      }}>
-        {display}
-      </div>
+  function getBtnClass(btn) {
+    if (btn === '=') return 'calc-btn calc-btn--equal';
+    if (btn === 'C') return 'calc-btn calc-btn--clear';
+    if (['+', '-', '*', '/'].includes(btn)) return 'calc-btn calc-btn--op';
+    return 'calc-btn';
+  }
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 64px)', gap: '6px' }}>
-        {btns.map(btn => (
-          <button key={btn} onClick={() => handleBtn(btn)}
-            style={{ height: '56px', fontSize: '18px' }}>
+  return (
+    <div className="calculator">
+      <h2 className="component-title">Calculadora</h2>
+      <div className="calc-display">{display}</div>
+      <div className="calc-grid">
+        {btns.map((btn, index) => (
+          <button
+            key={index}
+            className={getBtnClass(btn)}
+            onClick={() => handleBtn(btn)}
+          >
             {btn}
           </button>
         ))}

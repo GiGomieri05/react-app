@@ -14,23 +14,29 @@ function TodoList() {
     setTodos(todos.filter((_, i) => i !== index));
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') addTodo();
+  };
+
   return (
-    <div>
-      <h2>A fazeres</h2>
-      <div>
+    <div className="todo">
+      <h2 className="component-title">A fazeres</h2>
+      <div className="todo-input-row">
         <input
           type="text"
+          className="todo-input"
           value={inputValue}
           placeholder="Nova tarefa..."
           onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
-        <button onClick={addTodo}>Adicionar</button>
+        <button className="todo-add-btn" onClick={addTodo}>Adicionar</button>
       </div>
-      <ul>
+      <ul className="todo-list">
         {todos.map((todo, index) => (
-          <li key={index}>
-            {todo}
-            <button onClick={() => removeTodo(index)}>Remover</button>
+          <li key={index} className="todo-item">
+            <span>{todo}</span>
+            <button className="todo-remove-btn" onClick={() => removeTodo(index)}>Remover</button>
           </li>
         ))}
       </ul>

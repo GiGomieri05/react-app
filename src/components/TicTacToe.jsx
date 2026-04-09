@@ -5,6 +5,7 @@ function TicTacToe() {
   const [isX, setIsX] = useState(true);
 
   const winner = calcularVencedor(board);
+  const empate = !winner && board.every(cell => cell !== null);
 
   function clicar(index) {
     if (board[index] || winner) return;
@@ -20,29 +21,37 @@ function TicTacToe() {
     setIsX(true);
   }
 
-  return (
-    <div>
-      <p>{winner ? `Vencedor: ${winner}` : `Vez de: ${isX ? 'X' : 'O'}`}</p>
+  function getStatus() {
+    if (winner) return `Vencedor: ${winner}`;
+    if (empate) return 'Empate!';
+    return `Vez de: ${isX ? 'X' : 'O'}`;
+  }
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 80px)', gap: '4px' }}>
+  return (
+    <div className="tictactoe">
+      <h2 className="component-title">Jogo da Velha</h2>
+      <p className="tictactoe-status">{getStatus()}</p>
+      <div className="tictactoe-board">
         {board.map((valor, index) => (
-          <button key={index} onClick={() => clicar(index)}
-            style={{ height: '80px', fontSize: '28px' }}>
+          <button
+            key={index}
+            className={`tictactoe-cell ${valor === 'X' ? 'cell-x' : ''} ${valor === 'O' ? 'cell-o' : ''}`}
+            onClick={() => clicar(index)}
+          >
             {valor}
           </button>
         ))}
       </div>
-
-      <button onClick={reiniciar}>Reiniciar</button>
+      <button className="tictactoe-reset-btn" onClick={reiniciar}>Reiniciar</button>
     </div>
   );
 }
 
 function calcularVencedor(board) {
   const linhas = [
-    [0, 1, 2], [3, 4, 5], [6, 7, 8],  // linhas
-    [0, 3, 6], [1, 4, 7], [2, 5, 8],  // colunas
-    [0, 4, 8], [2, 4, 6],             // diagonais
+    [0, 1, 2], [3, 4, 5], [6, 7, 8],
+    [0, 3, 6], [1, 4, 7], [2, 5, 8],
+    [0, 4, 8], [2, 4, 6],
   ];
 
   for (const [a, b, c] of linhas) {

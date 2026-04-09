@@ -38,29 +38,31 @@ function CepSearch() {
   }
 
   return (
-    <div>
-      <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+    <div className="cep">
+      <h2 className="component-title">Buscador de CEP</h2>
+      <div className="cep-input-row">
         <input
+          className="cep-input"
           value={cep}
           onChange={(e) => setCep(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Digite o CEP..."
           maxLength={9}
         />
-        <button onClick={buscar} disabled={loading}>
+        <button className="cep-btn" onClick={buscar} disabled={loading}>
           {loading ? 'Buscando...' : 'Buscar'}
         </button>
       </div>
 
-      {erro && <p style={{ color: 'red' }}>{erro}</p>}
+      {erro && <p className="cep-erro">{erro}</p>}
 
       {resultado && (
-        <div>
-          <p><strong>Logradouro:</strong> {resultado.logradouro}</p>
-          <p><strong>Bairro:</strong> {resultado.bairro}</p>
-          <p><strong>Cidade:</strong> {resultado.localidade}</p>
-          <p><strong>Estado:</strong> {resultado.uf}</p>
-          <p><strong>CEP:</strong> {resultado.cep}</p>
+        <div className="cep-resultado">
+          <div className="cep-field"><span className="cep-label">Logradouro</span><span>{resultado.logradouro}</span></div>
+          <div className="cep-field"><span className="cep-label">Bairro</span><span>{resultado.bairro}</span></div>
+          <div className="cep-field"><span className="cep-label">Cidade</span><span>{resultado.localidade}</span></div>
+          <div className="cep-field"><span className="cep-label">Estado</span><span>{resultado.uf}</span></div>
+          <div className="cep-field"><span className="cep-label">CEP</span><span>{resultado.cep}</span></div>
         </div>
       )}
     </div>
