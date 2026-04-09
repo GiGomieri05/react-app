@@ -5,10 +5,9 @@ function TodoList() {
   const [inputValue, setInputValue] = useState('');
 
   const addTodo = () => {
-    if (inputValue.trim()) {
-      setTodos([...todos, inputValue.trim()]);
-      setInputValue('');
-    }
+    if (inputValue.trim() === '') return;
+    setTodos([...todos, inputValue.trim()]);
+    setInputValue('');
   };
 
   const removeTodo = (index) => {
@@ -22,6 +21,7 @@ function TodoList() {
         <input
           type="text"
           value={inputValue}
+          placeholder="Nova tarefa..."
           onChange={(e) => setInputValue(e.target.value)}
         />
         <button onClick={addTodo}>Adicionar</button>
