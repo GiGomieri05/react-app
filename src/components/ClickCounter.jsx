@@ -6,8 +6,10 @@ function ClickCounter() {
   return (
     <div>
       <h2>Conta Clique</h2>
-      <p> Me clicaram {count} vezes</p>
-      <button onClick={() => setCount(count + 1)}>Clique aqui!</button>
+      <div>
+        <p> Me clicaram {count} vezes</p>
+        <button onClick={() => setCount(count + 1)}>Clique aqui!</button>
+      </div>
     </div>
   );
 }
