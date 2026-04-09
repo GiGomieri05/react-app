@@ -9,7 +9,6 @@ function TicTacToe() {
 
   function clicar(index) {
     if (board[index] || winner) return;
-
     const novoBoard = [...board];
     novoBoard[index] = isX ? 'X' : 'O';
     setBoard(novoBoard);
@@ -31,6 +30,7 @@ function TicTacToe() {
     <div className="tictactoe">
       <h2 className="component-title">Jogo da Velha</h2>
       <p className="tictactoe-status">{getStatus()}</p>
+
       <div className="tictactoe-board">
         {board.map((valor, index) => (
           <button
@@ -42,7 +42,11 @@ function TicTacToe() {
           </button>
         ))}
       </div>
-      <button className="tictactoe-reset-btn" onClick={reiniciar}>Reiniciar</button>
+
+      <button className="tictactoe-reset-btn" onClick={reiniciar}>
+        <i className="fa-solid fa-rotate-left"></i>
+        Reiniciar
+      </button>
     </div>
   );
 }
@@ -53,7 +57,6 @@ function calcularVencedor(board) {
     [0, 3, 6], [1, 4, 7], [2, 5, 8],
     [0, 4, 8], [2, 4, 6],
   ];
-
   for (const [a, b, c] of linhas) {
     if (board[a] && board[a] === board[b] && board[a] === board[c]) {
       return board[a];

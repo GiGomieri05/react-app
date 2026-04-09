@@ -21,6 +21,7 @@ function TodoList() {
   return (
     <div className="todo">
       <h2 className="component-title">A fazeres</h2>
+
       <div className="todo-input-row">
         <input
           type="text"
@@ -30,13 +31,20 @@ function TodoList() {
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-        <button className="todo-add-btn" onClick={addTodo}>Adicionar</button>
+        <button className="todo-add-btn" onClick={addTodo}>
+          <i className="fa-solid fa-plus"></i>
+          Adicionar
+        </button>
       </div>
+
       <ul className="todo-list">
         {todos.map((todo, index) => (
           <li key={index} className="todo-item">
             <span>{todo}</span>
-            <button className="todo-remove-btn" onClick={() => removeTodo(index)}>Remover</button>
+            <button className="todo-remove-btn" onClick={() => removeTodo(index)}>
+              <i className="fa-solid fa-trash"></i>
+              Remover
+            </button>
           </li>
         ))}
       </ul>

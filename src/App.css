@@ -1,8 +1,11 @@
+/* ─── Google Fonts ──────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 /* ─── Reset & base ─────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
   background: #f4f4f4;
   color: #1a1a1a;
 }
@@ -34,9 +37,13 @@ body {
 }
 
 .tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
   padding: 10px 18px;
   border: none;
   border-radius: 8px 8px 0 0;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -71,9 +78,15 @@ body {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 /* ─── To-Do List ─────────────────────────────────────────── */
+.todo {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
 .todo-input-row {
   display: flex;
   gap: 8px;
@@ -85,6 +98,7 @@ body {
   padding: 10px 14px;
   border: 1.5px solid #AFA9EC;
   border-radius: 8px;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   background: #fff;
   outline: none;
@@ -93,11 +107,15 @@ body {
 .todo-input:focus { border-color: #534AB7; }
 
 .todo-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   padding: 10px 18px;
   background: #534AB7;
   color: #fff;
   border: none;
   border-radius: 8px;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -124,13 +142,18 @@ body {
 }
 
 .todo-remove-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   padding: 4px 12px;
   background: transparent;
   border: 1px solid #AFA9EC;
   border-radius: 6px;
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   color: #534AB7;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .todo-remove-btn:hover { background: #534AB7; color: #fff; }
@@ -140,28 +163,47 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 20px;
+  min-height: 340px;
+  text-align: center;
 }
 
 .counter-display {
-  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.counter-label-top {
+  font-size: 15px;
   color: #085041;
 }
 
 .counter-number {
-  font-size: 48px;
+  font-size: 80px;
   font-weight: 700;
-  display: block;
-  text-align: center;
+  line-height: 1;
   color: #0F6E56;
 }
 
+.counter-label-bottom {
+  font-size: 15px;
+  color: #085041;
+  opacity: 0.7;
+}
+
 .counter-btn {
-  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 40px;
   background: #0F6E56;
   color: #fff;
   border: none;
   border-radius: 8px;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
@@ -170,10 +212,14 @@ body {
 .counter-btn:hover { background: #085041; }
 
 .counter-reset-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   padding: 8px 20px;
   background: transparent;
   border: 1.5px solid #0F6E56;
   border-radius: 8px;
+  font-family: 'Inter', sans-serif;
   font-size: 13px;
   color: #0F6E56;
   cursor: pointer;
@@ -217,11 +263,15 @@ body {
 .tictactoe-cell.cell-o { color: #D85A30; }
 
 .tictactoe-reset-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
   padding: 10px 28px;
   background: #993C1D;
   color: #fff;
   border: none;
   border-radius: 8px;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -260,6 +310,7 @@ body {
   height: 60px;
   font-size: 18px;
   font-weight: 500;
+  font-family: 'Inter', sans-serif;
   background: #fff;
   border: 1.5px solid #FAC775;
   border-radius: 8px;
@@ -295,6 +346,11 @@ body {
 .calc-btn--clear:hover { background: #E24B4A; color: #fff; }
 
 /* ─── CEP Search ─────────────────────────────────────────── */
+.cep {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
 .cep-input-row {
   display: flex;
   gap: 8px;
@@ -306,6 +362,7 @@ body {
   padding: 10px 14px;
   border: 1.5px solid #85B7EB;
   border-radius: 8px;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   background: #fff;
   outline: none;
@@ -314,11 +371,15 @@ body {
 .cep-input:focus { border-color: #185FA5; }
 
 .cep-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
   padding: 10px 20px;
   background: #185FA5;
   color: #fff;
   border: none;
   border-radius: 8px;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -328,6 +389,9 @@ body {
 .cep-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
 .cep-erro {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   color: #A32D2D;
   font-size: 14px;
   margin-bottom: 8px;
@@ -346,6 +410,7 @@ body {
 .cep-field {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 14px;
   border-bottom: 1px solid #E6F1FB;
   padding-bottom: 8px;
@@ -354,6 +419,9 @@ body {
 .cep-field:last-child { border-bottom: none; padding-bottom: 0; }
 
 .cep-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-weight: 600;
   color: #185FA5;
 }

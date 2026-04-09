@@ -23,7 +23,6 @@ function Calculator() {
 
   function calculate() {
     if (anterior === null || operador === null) return;
-
     const atual = parseFloat(display);
     const ops = {
       '+': anterior + atual,
@@ -31,7 +30,6 @@ function Calculator() {
       '*': anterior * atual,
       '/': atual !== 0 ? anterior / atual : 'Erro',
     };
-
     setDisplay(String(ops[operador]));
     setAnterior(null);
     setOperador(null);
@@ -61,18 +59,16 @@ function Calculator() {
     return 'calc-btn';
   }
 
+  const labels = { '*': '×', '/': '÷', '-': '−' };
+
   return (
     <div className="calculator">
       <h2 className="component-title">Calculadora</h2>
       <div className="calc-display">{display}</div>
       <div className="calc-grid">
         {btns.map((btn, index) => (
-          <button
-            key={index}
-            className={getBtnClass(btn)}
-            onClick={() => handleBtn(btn)}
-          >
-            {btn}
+          <button key={index} className={getBtnClass(btn)} onClick={() => handleBtn(btn)}>
+            {labels[btn] || btn}
           </button>
         ))}
       </div>

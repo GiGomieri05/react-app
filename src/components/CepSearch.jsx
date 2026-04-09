@@ -12,15 +12,12 @@ function CepSearch() {
       setErro('CEP deve ter 8 dígitos.');
       return;
     }
-
     setLoading(true);
     setErro('');
     setResultado(null);
-
     try {
       const res = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
       const data = await res.json();
-
       if (data.erro) {
         setErro('CEP não encontrado.');
       } else {
@@ -37,9 +34,18 @@ function CepSearch() {
     if (e.key === 'Enter') buscar();
   }
 
+  const campos = resultado ? [
+    { icon: 'fa-solid fa-road',     label: 'Logradouro', valor: resultado.logradouro },
+    { icon: 'fa-solid fa-building', label: 'Bairro',     valor: resultado.bairro },
+    { icon: 'fa-solid fa-city',     label: 'Cidade',     valor: resultado.localidade },
+    { icon: 'fa-solid fa-flag',     label: 'Estado',     valor: resultado.uf },
+    { icon: 'fa-solid fa-map-pin',  label: 'CEP',        valor: resultado.cep },
+  ] : [];
+
   return (
     <div className="cep">
       <h2 className="component-title">Buscador de CEP</h2>
+
       <div className="cep-input-row">
         <input
           className="cep-input"
@@ -50,19 +56,29 @@ function CepSearch() {
           maxLength={9}
         />
         <button className="cep-btn" onClick={buscar} disabled={loading}>
+          <i className={loading ? 'fa-solid fa-spinner fa-spin' : 'fa-solid fa-magnifying-glass'}></i>
           {loading ? 'Buscando...' : 'Buscar'}
         </button>
       </div>
 
-      {erro && <p className="cep-erro">{erro}</p>}
+      {erro && (
+        <p className="cep-erro">
+          <i className="fa-solid fa-triangle-exclamation"></i>
+          {erro}
+        </p>
+      )}
 
       {resultado && (
         <div className="cep-resultado">
-          <div className="cep-field"><span className="cep-label">Logradouro</span><span>{resultado.logradouro}</span></div>
-          <div className="cep-field"><span className="cep-label">Bairro</span><span>{resultado.bairro}</span></div>
-          <div className="cep-field"><span className="cep-label">Cidade</span><span>{resultado.localidade}</span></div>
-          <div className="cep-field"><span className="cep-label">Estado</span><span>{resultado.uf}</span></div>
-          <div className="cep-field"><span className="cep-label">CEP</span><span>{resultado.cep}</span></div>
+          {campos.map(({ icon, label, valor }) => (
+            <div key={label} className="cep-field">
+              <span className="cep-label">
+                <i className={icon}></i>
+                {label}
+              </span>
+              <span>{valor}</span>
+            </div>
+          ))}
         </div>
       )}
     </div>
