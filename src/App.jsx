@@ -9,11 +9,11 @@ import Calculator from './components/Calculator';
 import CepSearch from './components/CepSearch';
 
 const tabs = [
-  { id: 'todo',     label: 'To-Do List',      color: '#EEEDFE', Component: TodoList },
-  { id: 'counter',  label: 'Contador',         color: '#E1F5EE', Component: ClickCounter },
-  { id: 'tictactoe',label: 'Jogo da Velha',    color: '#FAECE7', Component: TicTacToe },
-  { id: 'calc',     label: 'Calculadora',      color: '#FAEEDA', Component: Calculator },
-  { id: 'cep',      label: 'Buscador de CEP',  color: '#E6F1FB', Component: CepSearch },
+  { id: 'todo',     label: 'To-Do List',       Component: TodoList },
+  { id: 'counter',  label: 'Contador',         Component: ClickCounter },
+  { id: 'tictactoe',label: 'Jogo da Velha',    Component: TicTacToe },
+  { id: 'calc',     label: 'Calculadora',      Component: Calculator },
+  { id: 'cep',      label: 'Buscador de CEP',  Component: CepSearch },
 ];
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
       <header className="App-header">
         <h1>Aplicação Tarefa 06 no React!</h1>
         <nav className="tab-nav">
+          {/* Adds tab buttons dynamically */}
           {tabs.map(tab => (
             <button
               key={tab.id}
@@ -38,7 +39,7 @@ function App() {
         </nav>
       </header>
       
-      <main className="tab-content" style={{ background: current.color }}>
+      <main className="tab-content">
           <Component />
       </main>
     </div>
