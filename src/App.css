@@ -27,3 +27,34 @@ body {
   font-weight: 600;
   margin-bottom: 20px;
 }
+
+/* tab nav */
+
+.tab-nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab-btn:hover {
+  background: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+}
+
+.tab-btn--todo.active      { background: #EEEDFE; color: #3C3489; }
+.tab-btn--counter.active   { background: #E1F5EE; color: #085041; }
+.tab-btn--tictactoe.active { background: #FAECE7; color: #712B13; }
+.tab-btn--calc.active      { background: #FAEEDA; color: #633806; }
+.tab-btn--cep.active       { background: #E6F1FB; color: #0C447C; }
