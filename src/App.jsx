@@ -6,6 +6,7 @@ import ClickCounter from './components/ClickCounter';
 import TicTacToe from './components/TicTacToe';
 import Calculator from './components/Calculator';
 import CepSearch from './components/CepSearch';
+import Stopwatch from './components/Stopwatch';
 import GroupInfo from './components/GroupInfo';
 
 const tabs = [
@@ -13,7 +14,8 @@ const tabs = [
   { id: 'counter',   label: 'Contador',        icon: 'fa-solid fa-computer-mouse', Component: ClickCounter },
   { id: 'tictactoe', label: 'Jogo da Velha',   icon: 'fa-solid fa-gamepad',        Component: TicTacToe },
   { id: 'calc',      label: 'Calculadora',     icon: 'fa-solid fa-calculator',     Component: Calculator },
-  { id: 'cep',       label: 'Buscador de CEP', icon: 'fa-solid fa-map-pin',        Component: CepSearch },
+  { id: 'cep',        label: 'Buscador de CEP', icon: 'fa-solid fa-map-pin',        Component: CepSearch },
+  { id: 'stopwatch',  label: 'Cronômetro',      icon: 'fa-solid fa-stopwatch',      Component: Stopwatch },
 ];
 
 function App() {

@@ -184,7 +184,8 @@ body {
 .tab-btn--counter.active   { background: #E1F5EE; color: #085041; }
 .tab-btn--tictactoe.active { background: #FAECE7; color: #712B13; }
 .tab-btn--calc.active      { background: #FAEEDA; color: #633806; }
-.tab-btn--cep.active       { background: #E6F1FB; color: #0C447C; }
+.tab-btn--cep.active        { background: #E6F1FB; color: #0C447C; }
+.tab-btn--stopwatch.active  { background: #E0F7F4; color: #00574B; }
 
 /* ─── Tab content area ───────────────────────────────────── */
 .tab-content {
@@ -197,7 +198,8 @@ body {
 .tab-content--counter   { background: #E1F5EE; }
 .tab-content--tictactoe { background: #FAECE7; }
 .tab-content--calc      { background: #FAEEDA; }
-.tab-content--cep       { background: #E6F1FB; }
+.tab-content--cep        { background: #E6F1FB; }
+.tab-content--stopwatch  { background: #E0F7F4; }
 
 /* ─── Shared ─────────────────────────────────────────────── */
 .component-title {
@@ -550,4 +552,103 @@ body {
   gap: 6px;
   font-weight: 600;
   color: #185FA5;
+}
+
+/* ─── Stopwatch ──────────────────────────────────────────── */
+.stopwatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.stopwatch-display {
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: #007A65;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stopwatch-centis {
+  font-size: 40px;
+  font-weight: 500;
+  color: #00A68A;
+  vertical-align: baseline;
+}
+
+.stopwatch-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stopwatch-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.stopwatch-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.stopwatch-btn--start  { background: #007A65; color: #fff; }
+.stopwatch-btn--start:hover { background: #005C4B; }
+
+.stopwatch-btn--pause  { background: #D0A000; color: #fff; }
+.stopwatch-btn--pause:hover { background: #A07800; }
+
+.stopwatch-btn--lap {
+  background: transparent;
+  border: 1.5px solid #007A65;
+  color: #007A65;
+}
+.stopwatch-btn--lap:not(:disabled):hover { background: #007A65; color: #fff; }
+
+.stopwatch-btn--reset {
+  background: transparent;
+  border: 1.5px solid #A03030;
+  color: #A03030;
+}
+.stopwatch-btn--reset:not(:disabled):hover { background: #A03030; color: #fff; }
+
+.stopwatch-laps {
+  list-style: none;
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stopwatch-lap-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #B2E8E0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+}
+
+.stopwatch-lap-index {
+  font-weight: 700;
+  color: #00A68A;
+  min-width: 36px;
+}
+
+.stopwatch-lap-time {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: #007A65;
 }
